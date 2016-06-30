@@ -7,14 +7,15 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.mike.itstepandroid.R;
+import com.example.mike.itstepandroid.telegram.model.Root;
 
 import java.io.IOException;
 
 public class TelegramActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private String repsonse;
+    private Root root;
     private TextView tvTelegram;
-    private AsyncTask<String, Void, String> asyncTask;
+    private AsyncTask<String, Void, Root> asyncTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,27 +24,28 @@ public class TelegramActivity extends AppCompatActivity implements View.OnClickL
 
         tvTelegram = (TextView) findViewById(R.id.tvTelegram);
 
-        asyncTask = new AsyncTask<String, Void, String>() {
+        asyncTask = new AsyncTask<String, Void, Root>() {
 
             @Override
-            protected String doInBackground(String... params) {
+            protected Root doInBackground(String... params) {
 
                 TelegramClient telegramClient = new TelegramClient();
 
                 try {
-                    repsonse = telegramClient.getUpdates();
+                    root = new Root();
+                    root = telegramClient.getUpdates();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
 
-                return repsonse;
+                return root;
             }
 
             @Override
-            protected void onPostExecute(String s) {
-                super.onPostExecute(s);
+            protected void onPostExecute(Root root) {
+                super.onPostExecute(root);
 
-                tvTelegram.setText(s);
+                tvTelegram.setText(root.getList().get(0).getMessage().getText());
             }
         };
         
