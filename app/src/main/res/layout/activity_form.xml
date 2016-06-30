@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".form.FormActivity">
+    
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <ScrollView
+        android:layout_marginTop="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/nameField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/firstNameWrapper"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:layout_width="150dp"
+                    android:layout_gravity="start"
+                    android:gravity="start"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5">
+
+                    <EditText
+                        android:id="@+id/firstName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/lastNameWrapper"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_gravity="right"
+                    android:layout_weight="0.5">
+
+                    <EditText
+                        android:id="@+id/lastName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+            
+
+
+            <TextView
+                android:layout_below="@+id/nameField"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Arrival"
+                android:textStyle="bold"
+                android:id="@+id/tvArrival"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp" />
+
+            <LinearLayout
+                android:id="@+id/dateField"
+                android:layout_below="@+id/tvArrival"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/dateWrapper"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin">
+
+                    <EditText
+                        android:id="@+id/date"
+                        android:inputType="none"
+                        android:textAlignment="center"
+                        android:cursorVisible="false"
+                        android:focusableInTouchMode="false"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/timeWrapper"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    >
+
+                    <EditText
+                        android:id="@+id/time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+
+                </android.support.design.widget.TextInputLayout>
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_below="@+id/dateField"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Number of days - "
+                android:textStyle="bold"
+                android:id="@+id/tvDays"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp" />
+            <Button
+                android:id="@+id/btnDaysNumber"
+                android:layout_below="@+id/tvDays"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Set Number"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text=""
+                android:textStyle="bold"
+                android:id="@+id/tvNumber"
+                android:layout_alignTop="@+id/tvDays"
+                android:layout_toRightOf="@+id/tvDays"
+                android:layout_toEndOf="@+id/tvDays" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_marginTop="3dp"
+                android:text="Sex"
+                android:textStyle="bold"
+                android:id="@+id/tvSex"
+                android:layout_below="@+id/btnDaysNumber"
+                android:layout_centerHorizontal="true" />
+
+
+                <RadioGroup
+                    android:id="@+id/rgSex"
+                    android:layout_below="@+id/tvSex"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center_horizontal"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+
+                        android:id="@+id/rbM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="M"
+                        android:textStyle="bold"/>
+
+                    <RadioButton
+                        android:id="@+id/rbF"
+                        android:text="F"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Dining"
+                android:textStyle="bold"
+                android:id="@+id/tvDining"
+                android:layout_below="@+id/rgSex"
+                android:layout_centerHorizontal="true" />
+            
+            <CheckBox
+                android:id="@+id/cbBreakfast"
+                android:layout_below="@+id/tvDining"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Breakfast"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold"/>
+            <CheckBox
+                android:id="@+id/cbLunch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lunch"
+                android:textStyle="bold"
+                android:layout_below="@+id/cbBreakfast"
+                android:layout_alignLeft="@+id/cbBreakfast"
+                android:layout_alignStart="@+id/cbBreakfast" />
+            <CheckBox
+                android:id="@+id/cbDinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dinner"
+                android:textStyle="bold"
+                android:layout_below="@+id/cbLunch"
+                android:layout_alignLeft="@+id/cbLunch"
+                android:layout_alignStart="@+id/cbLunch" />
+            <CheckBox
+                android:id="@+id/cbAllinclusive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All Inclusive"
+                android:textStyle="bold"
+                android:layout_below="@+id/cbDinner"
+                android:layout_alignLeft="@+id/cbDinner"
+                android:layout_alignStart="@+id/cbDinner" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="City"
+                android:textStyle="bold"
+                android:id="@+id/tvCity"
+                android:layout_below="@+id/cbAllinclusive"
+                android:layout_centerHorizontal="true" />
+            <Spinner
+                android:id="@+id/spinnerCities"
+                android:layout_below="@+id/tvCity"
+                android:layout_width="wrap_content"
+                android:entries="@array/cityList"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true">
+
+            </Spinner>
+
+            <EditText
+                android:id="@+id/etWishList"
+                android:hint="Wishlist"
+                android:layout_below="@+id/spinnerCities"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btnSubmit"
+                android:layout_below="@+id/etWishList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Submit"
+                android:layout_centerHorizontal="true"/>
+
+
+
+
+        </RelativeLayout>
+
+
+
+
+    </ScrollView>
+
+
+
+
+</android.support.design.widget.CoordinatorLayout>

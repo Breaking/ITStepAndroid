@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">ITStepAndroid</string>
+
+    <string-array name="cityList">
+        <item>San Francisco</item>
+        <item>Melbourne</item>
+        <item>Paris</item>
+        <item>Rome</item>
+        <item>London</item>
+
+    </string-array>
+
 </resources>
