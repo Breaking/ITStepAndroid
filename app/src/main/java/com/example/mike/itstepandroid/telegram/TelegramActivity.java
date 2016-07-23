@@ -15,7 +15,6 @@ public class TelegramActivity extends AppCompatActivity implements View.OnClickL
 
     private Root root;
     private TextView tvTelegram;
-    private AsyncTask<String, Void, Root> asyncTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,35 +23,40 @@ public class TelegramActivity extends AppCompatActivity implements View.OnClickL
 
         tvTelegram = (TextView) findViewById(R.id.tvTelegram);
 
-        asyncTask = new AsyncTask<String, Void, Root>() {
-
-            @Override
-            protected Root doInBackground(String... params) {
-
-                TelegramClient telegramClient = new TelegramClient();
-
-                try {
-                    root = new Root();
-                    root = telegramClient.getUpdates();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                return root;
-            }
-
-            @Override
-            protected void onPostExecute(Root root) {
-                super.onPostExecute(root);
-
-                tvTelegram.setText(root.getList().get(0).getMessage().getText());
-            }
-        };
-        
     }
 
     @Override
     public void onClick(View v) {
-        asyncTask.execute();
+        //asyncTask.execute();
+        new JSonTask().execute();
+    }
+
+    public class JSonTask extends AsyncTask<Void, Void, Root>{
+
+        @Override
+        protected Root doInBackground(Void... params) {
+            TelegramClient telegramClient = new TelegramClient();
+
+            try {
+                root = new Root();
+                root = telegramClient.getUpdates();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return root;
+        }
+
+        @Override
+        protected void onPostExecute(Root root) {
+            super.onPostExecute(root);
+            if (root.getList().size() == 0){
+                tvTelegram.setText("No new messages!");
+            } else{
+                tvTelegram.setText(root.getList().get(1).getMessage().getText());
+            }
+
+        }
     }
 }
+
