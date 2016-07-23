@@ -15,7 +15,6 @@ import okhttp3.Response;
 public class TelegramClient  {
     public final static String API_KEY = "227256644:AAHLJkW13C03wXxUgq_JjMAcYq-X6thn9hU";
     public final static String UPDATE_URL = "https://api.telegram.org/bot" + API_KEY +"/getUpdates";
-    private Root root;
 
     private String get(String url) throws IOException{
         OkHttpClient client = new OkHttpClient();
@@ -31,7 +30,7 @@ public class TelegramClient  {
 
     protected Root getUpdates() throws IOException {
         Gson gson = new Gson();
-        root = gson.fromJson(get(UPDATE_URL),
+        Root root = gson.fromJson(get(UPDATE_URL),
                 Root.class);
         return root;
     }

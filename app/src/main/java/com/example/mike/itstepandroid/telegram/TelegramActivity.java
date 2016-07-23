@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class TelegramActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Root root;
+    //private Root root;
     private TextView tvTelegram;
 
     @Override
@@ -38,13 +38,14 @@ public class TelegramActivity extends AppCompatActivity implements View.OnClickL
             TelegramClient telegramClient = new TelegramClient();
 
             try {
-                root = new Root();
-                root = telegramClient.getUpdates();
+//                root = new Root();
+//                root = telegramClient.getUpdates();
+                return telegramClient.getUpdates();
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
-            return root;
+            return null;
         }
 
         @Override
@@ -53,7 +54,7 @@ public class TelegramActivity extends AppCompatActivity implements View.OnClickL
             if (root.getList().size() == 0){
                 tvTelegram.setText("No new messages!");
             } else{
-                tvTelegram.setText(root.getList().get(1).getMessage().getText());
+                tvTelegram.setText(root.getList().get(0).getMessage().getText());
             }
 
         }
