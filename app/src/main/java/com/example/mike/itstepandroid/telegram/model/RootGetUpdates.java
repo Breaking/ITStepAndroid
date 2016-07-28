@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by Mike on 30.06.2016.
  */
-public class Root {
+public class RootGetUpdates {
     private boolean ok;
     private List<Result> result;
 

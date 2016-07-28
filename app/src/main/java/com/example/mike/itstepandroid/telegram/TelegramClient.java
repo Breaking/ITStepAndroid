@@ -1,6 +1,6 @@
 package com.example.mike.itstepandroid.telegram;
 
-import com.example.mike.itstepandroid.telegram.model.Root;
+import com.example.mike.itstepandroid.telegram.model.RootGetUpdates;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -28,10 +28,10 @@ public class TelegramClient  {
 
     }
 
-    protected Root getUpdates() throws IOException {
+    public RootGetUpdates getUpdates() throws IOException {
         Gson gson = new Gson();
-        Root root = gson.fromJson(get(UPDATE_URL),
-                Root.class);
-        return root;
+        RootGetUpdates rootGetUpdates = gson.fromJson(get(UPDATE_URL),
+                RootGetUpdates.class);
+        return rootGetUpdates;
     }
 }
