@@ -8,6 +8,6 @@ import java.text.SimpleDateFormat;
 public class Utils {
     public static String getDate(long date){
         SimpleDateFormat fullDateFormat = new SimpleDateFormat("HH.mm  dd.MM.yy");
-        return fullDateFormat.format(date);
+        return fullDateFormat.format(date * 1000);
     }
 }

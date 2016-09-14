@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.example.mike.itstepandroid.R;
 import com.example.mike.itstepandroid.telegram.adapter.MessageAdapter;
 import com.example.mike.itstepandroid.telegram.asynctask.AsyncTaskGetUpdates;
+import com.example.mike.itstepandroid.telegram.model.MsgInfo;
 import com.example.mike.itstepandroid.telegram.model.Result;
 import com.example.mike.itstepandroid.telegram.model.RootGetUpdates;
 
@@ -30,7 +31,8 @@ public class TelegramActivity extends AppCompatActivity implements View.OnClickL
         listView = (ListView) findViewById(R.id.lvTelegram);
         tvTelegram = (TextView) findViewById(R.id.tvTelegram);
 
-        listView.setAdapter(new MessageAdapter(this, new ArrayList<Result>()));
+        //listView.setAdapter(new MessageAdapter(this, new ArrayList<Result>()));
+        listView.setAdapter(new MessageAdapter(this, new ArrayList<MsgInfo>()));
 
     }
 

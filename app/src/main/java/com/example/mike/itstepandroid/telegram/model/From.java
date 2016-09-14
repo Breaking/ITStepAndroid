@@ -1,12 +1,14 @@
 package com.example.mike.itstepandroid.telegram.model;
 
+import java.util.Map;
+
 /**
  * Created by Mike on 30.06.2016.
  */
 public class From {
-    long id;
-    String first_name;
-    String last_name;
+    private long id;
+    private String first_name;
+    private String last_name;
 
     public long getId() {
         return id;

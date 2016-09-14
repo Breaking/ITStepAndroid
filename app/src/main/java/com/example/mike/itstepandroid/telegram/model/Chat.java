@@ -4,10 +4,10 @@ package com.example.mike.itstepandroid.telegram.model;
  * Created by Mike on 30.06.2016.
  */
 public class Chat {
-    long id;
-    String first_name;
-    String last_name;
-    String type;
+    private long id;
+    private String first_name;
+    private String last_name;
+    private String type;
 
     public String getFirst_name() {
         return first_name;
