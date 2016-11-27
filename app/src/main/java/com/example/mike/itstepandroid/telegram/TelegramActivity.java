@@ -13,6 +13,10 @@ import com.example.mike.itstepandroid.telegram.asynctask.AsyncTaskGetUpdates;
 import com.example.mike.itstepandroid.telegram.model.MsgInfo;
 import com.example.mike.itstepandroid.telegram.model.Result;
 import com.example.mike.itstepandroid.telegram.model.RootGetUpdates;
+import com.example.mike.itstepandroid.telegram.model.photo.Photo;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,11 +32,24 @@ public class TelegramActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_telegram);
 
+        //initialize UIL
+        DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
+                .cacheInMemory(true)
+                .cacheOnDisk(true)
+                .build();
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
+                .defaultDisplayImageOptions(defaultOptions)
+                .build();
+        ImageLoader.getInstance().init(config);
+
         listView = (ListView) findViewById(R.id.lvTelegram);
         tvTelegram = (TextView) findViewById(R.id.tvTelegram);
 
         //listView.setAdapter(new MessageAdapter(this, new ArrayList<Result>()));
         listView.setAdapter(new MessageAdapter(this, new ArrayList<MsgInfo>()));
+
+        Photo photo = new Photo();
+        
 
     }
 

@@ -11,8 +11,11 @@ import com.example.mike.itstepandroid.R;
 import com.example.mike.itstepandroid.telegram.Utils;
 import com.example.mike.itstepandroid.telegram.model.MsgInfo;
 import com.example.mike.itstepandroid.telegram.model.Result;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by Mike on 27.07.2016.
@@ -65,11 +68,14 @@ public class MessageAdapter extends BaseAdapter {
         View resultView;
 
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        resultView = layoutInflater.inflate(R.layout.telegram_message_row, parent, false);
+        resultView = layoutInflater.inflate(R.layout.telegram_message_row2, parent, false);
+        CircleImageView avatar = (CircleImageView) resultView.findViewById(R.id.avatar);
+
         ((TextView) resultView.findViewById(R.id.tvMessageText)).setText(msgInfo.getText());
         ((TextView) resultView.findViewById(R.id.tvMessageSender)).setText(msgInfo.getFirst_name() + " " +
                 msgInfo.getLast_name());
         ((TextView) resultView.findViewById(R.id.tvMessageDate)).setText(Utils.getDate(msgInfo.getDate()));
+        ImageLoader.getInstance().displayImage(msgInfo.getFile_path(), avatar);
 
 
         return resultView;
